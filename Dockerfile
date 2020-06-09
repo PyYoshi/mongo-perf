@@ -34,10 +34,15 @@ RUN pip install -r requirements.txt
 # Copy source
 COPY . .
 
+RUN \
+  rm -rf /tmp/mongo-perf/logs \
+  && mkdir -p /tmp/mongo-perf/logs \
+  && chown -R mongo-shell:mongo-shell /tmp/mongo-perf/logs
+
 # Permissions
 RUN chown -R mongo-shell:mongo-shell .
 
-USER mongo-shell
+# USER mongo-shell
 
 ENTRYPOINT []
 CMD []

@@ -14,5 +14,7 @@ services:
   mongo-perf:
     build:
       context: .
+    volumes:
+      - ./logs:/tmp/mongo-perf/logs
     command: >
       /bin/bash ./run.sh
